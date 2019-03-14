@@ -18,17 +18,20 @@ Vue.component('video-upload', {
   data() {
       return {
           name: '',
-          file : ''
+          file : '',
+          formData: ''
       }
   },
   methods: {
-      createGif() {
-          let formData = new FormData()
+      createVideo() {
+        console.log("Masuk create", this.file, this.name)  
+        let formData = new FormData()
           formData.append('image', this.file)
           formData.append('name', this.name)
           // formData.append('tag', this.tag)
+          console.log("data yang dikirim ke server ===>", formData)
           axios
-              .post(`http://localhost:3000/gifs`, formData, {
+              .post(`http://localhost:3000/upload`, formData, {
                   headers: {
                       'Content-Type': 'multipart/form-data',
                       // token: localStorage.token
@@ -37,7 +40,7 @@ Vue.component('video-upload', {
               .then(({ data }) => {
                   this.name = '',
                   this.tag = ''
-                  console.log(data)
+                  console.log("Hasil Post:", data)
               })
               .catch(err => {
                   console.log(err)
@@ -45,6 +48,7 @@ Vue.component('video-upload', {
       },
       handleFileUpload(event) {
           // this.file = event.file.files[0]
+          console.log("masuk file upload", this.$refs.file)
           this.file = this.$refs.file.files[0];
       },
   },
@@ -52,10 +56,10 @@ Vue.component('video-upload', {
   `
   <div>
       <hr>
-      <form v-on:submit.prevent='createGif'>
+      <form v-on:submit.prevent='createVideo'>
           <fieldset>
               <div class="form-group">
-                  <label>Gif Name</label>
+                  <label>Video Name</label>
                   <input v-model="name" type="text" class="form-control">
               </div>
               <div class="form-group">
