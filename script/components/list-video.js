@@ -1,7 +1,13 @@
 Vue.component('video-list',{
-    template:`fsafasf
+    props: ['data'],
+    created() {
+        console.log('video list')
+    },
+    template:`
+        <div>
         <ul v-for="key in data">
             <li>{{path}}</li>
-        <ul>
+        </ul>
+        </div>
     `
 })
