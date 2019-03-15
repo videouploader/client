@@ -2,7 +2,7 @@ Vue.component('video-list', {
 
     props: ['videolist'],
     created() {
-        console.log('video-list created==>', videolist)
+        console.log('video-list created==>')
     },
     template:`
 
