@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>VideoUploader</title>
+</head>
+<body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    <h1>VideoYouSee</h1>
+    <div id="app">
+        
+        <div>
+            <video-upload></video-upload>
+            <center><button class="btn btn-primary" v-on:click='getAllVideo'>Show Videos</button></center>
+            <video-list v-bind:videolist="videoList"></video-list>
+        </div>
+        
+    </div>
+   <!-- axios -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+   <!-- dev mode -->
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <!-- prod mode -->
+   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+   <!-- script source -->
+   <script src="/script/components/uploader.js"></script>
+   <script src="/script/components/list-video.js"></script>
+   <script src="/script/components/item-video.js"></script>
+   <script src="/script/app.js"></script>
+</body>
+</html>
