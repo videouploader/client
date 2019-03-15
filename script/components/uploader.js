@@ -1,19 +1,4 @@
-// Vue.component('video-upload', {
-//     template: `
-//     <form>
-//       <div class="form-group mx-auto" style="width: 50%;"">
-//         <label for="creator">creator name:</label><br>
-//         <input type="text" v-model="creator" class="form-control" placeholder="your name here">
-//       <br>
-//         <label for="exampleFormControlFile1">Example file input</label>
-//         <input type="file" class="form-control-file" id="exampleFormControlFile1">
-//         <a href="#" class="btn btn-outline-primary">submit</a>
-//         </div>
-//     </form>
-//     `,
-//     props:['creator','path']
-//   })
-
+const url = `http://localhost:3000`
 Vue.component('video-upload', {
   data() {
       return {
@@ -31,7 +16,7 @@ Vue.component('video-upload', {
           // formData.append('tag', this.tag)
           console.log("data yang dikirim ke server ===>", formData)
           axios
-              .post(`http://localhost:3000/upload`, formData, {
+              .post(`${url}/upload`, formData, {
                   headers: {
                       'Content-Type': 'multipart/form-data',
                       // token: localStorage.token
@@ -57,17 +42,20 @@ Vue.component('video-upload', {
   `
   <div>
       <hr>
+      <div v-if="file">
+      <img src="file.name"
+      </div>
       <form v-on:submit.prevent='createVideo'>
           <fieldset>
-              <div class="form-group">
+                <div class="form-group mx-auto" style="width: 50%">
                   <label>Video Name</label>
-                  <input v-model="name" type="text" class="form-control">
-              </div>
-              <div class="form-group">
+                  <input v-model="name" type="text" class="form-control" required>
+                  </div>
+                <div class="form-group mx-auto" style="width: 50%">
                   <label for="exampleInputFile">Upload Image</label>
-                  <input type="file" id="file" class="inputFile" ref="file" v-on:change="handleFileUpload" />
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+                  <input type="file" id="file" class="inputFile" ref="file" v-on:change="handleFileUpload" required/>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
           </fieldset>
       </form>
   </div>

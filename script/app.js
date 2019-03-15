@@ -5,8 +5,8 @@ const app = new Vue({
     id:'',
     creator:'',
     path:'',
-    data:[],
-    method:{
+    data:{},
+    methods:{
         videoUpload:function(){
             Axios
                 .post(`${url}/videoupload`,{

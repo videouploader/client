@@ -1,4 +1,5 @@
 Vue.component('video-list',{
+
     props: ['data'],
     created() {
         console.log('video list')
@@ -9,5 +10,5 @@ Vue.component('video-list',{
             <li>{{path}}</li>
         </ul>
         </div>
-    `
+
 })
