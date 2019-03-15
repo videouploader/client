@@ -5,36 +5,17 @@ const app = new Vue({
     id:'',
     creator:'',
     path:'',
-    data:{},
+    data:{
+        videoList:[],
+        message:''
+    },
     methods:{
-        videoUpload:function(){
-            Axios
-                .post(`${url}/videoupload`,{
-                    creator:this.creator,
-                    path:this.path
-                })
-                .then(data=>{
-                    console.log(data)
-                })
-                .catch(err=>{
-                    console.log(err)
-                })
-        },
         videoList:function(){
             Axios
                 .get(`${url}/videolist`)
                 .then(data=>{
                     console.log(data)
-                })
-                .catch(err=>{
-                    console.log(err)
-                })
-        },
-        videoDownload:function(){
-            Axios
-                .get(`${url}/videodownload`)
-                .then(data=>{
-                    console.log(data)
+                    this.videoList.push(data)
                 })
                 .catch(err=>{
                     console.log(err)

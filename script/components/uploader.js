@@ -1,4 +1,3 @@
-const url = `http://localhost:3000`
 Vue.component('video-upload', {
   data() {
       return {
@@ -9,12 +8,12 @@ Vue.component('video-upload', {
   },
   methods: {
       createVideo() {
-        console.log("Masuk create", this.file, this.name)  
+        // console.log("Masuk create", this.file, this.name)  
         let formData = new FormData()
           formData.append('image', this.file)
           formData.append('name', this.name)
           // formData.append('tag', this.tag)
-          console.log("data yang dikirim ke server ===>", formData)
+        //   console.log("data yang dikirim ke server ===>", formData)
           axios
               .post(`${url}/upload`, formData, {
                   headers: {
