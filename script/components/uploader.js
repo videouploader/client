@@ -26,6 +26,7 @@ Vue.component('video-upload', {
                   this.name = '',
                   this.tag = ''
                   console.log("Hasil Post:", data)
+                  
               })
               .catch(err => {
                   console.log(err)
