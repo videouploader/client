@@ -5,11 +5,15 @@ const app = new Vue({
     id:'',
     creator:'',
     path:'',
+    isLogin: false,
     data:{
         videoList:[],
         message:''
     },
     methods:{
+        getLogin: function () {
+            this.isLogin = true
+        },
         getAllVideo:function(){
             console.log("Masuk ke function getallVideo")
             
