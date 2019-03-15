@@ -10,12 +10,15 @@ const app = new Vue({
         message:''
     },
     methods:{
-        videoList:function(){
-            Axios
-                .get(`${url}/videolist`)
-                .then(data=>{
-                    console.log(data)
-                    this.videoList.push(data)
+        getAllVideo:function(){
+            console.log("Masuk ke function getallVideo")
+            
+            axios
+                .get(`${url}/video`)
+                .then(({data}) =>{
+                    console.log("Hasil get all videos: ", data.data)
+                    this.videoList = []
+                    this.videoList.push(data.data)
                 })
                 .catch(err=>{
                     console.log(err)

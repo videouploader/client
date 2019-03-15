@@ -51,7 +51,7 @@ Vue.component('video-upload', {
                   <input v-model="name" type="text" class="form-control" required>
                   </div>
                 <div class="form-group mx-auto" style="width: 50%">
-                  <label for="exampleInputFile">Upload Image</label>
+                  <label for="exampleInputFile">Upload Your Video Here</label>
                   <input type="file" id="file" class="inputFile" ref="file" v-on:change="handleFileUpload" required/>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
