@@ -1,14 +1,18 @@
-Vue.component('video-list',{
+Vue.component('video-list', {
 
-    props: ['data'],
+    props: ['videolist'],
     created() {
-        console.log('video list')
+        console.log('video-list created==>', videolist)
     },
     template:`
-        <div>
-        <ul v-for="key in data">
-            <li>{{path}}</li>
-        </ul>
+
+        <div class="row">
+            <video-item
+                v-for="(video, index) in videolist[0]"
+                v-bind:key="index"
+                v-bind:video="video">
+            </video-item>
         </div>
-`
+`,
 })
+
